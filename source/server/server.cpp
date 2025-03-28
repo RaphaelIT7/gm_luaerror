@@ -123,6 +123,7 @@ void Initialize( GarrysMod::Lua::ILuaBase *LUA )
 
 void Deinitialize( GarrysMod::Lua::ILuaBase * )
 {
+	HandleClientLuaError_detour.Disable( );
 	HandleClientLuaError_detour.Destroy( );
 }
 
