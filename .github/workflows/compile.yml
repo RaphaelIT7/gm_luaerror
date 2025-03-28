@@ -1,0 +1,39 @@
+name: Build Module
+
+on: 
+  push:
+    paths:
+      - '.github/workflows/compile.yml'
+      - 'source/**'
+      - 'premake5.lua'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build_module_sv:
+    name: "Build Module (Server)"
+    uses: RaphaelIT7/gmod-common-module-base/.github/workflows/compile.yml@workflow
+    with:
+      PROJECT_NAME: "luaerror"
+      BUILD_64x: "false"
+      REALM: "sv"
+      BUILD_WINDOWS: "true"
+      ARTIFACT_EXPIRE: "7"
+      SOURCESDK_MINIMAL: "RaphaelIT7/sourcesdk-minimal"
+      SOURCESDK_MINIMAL_BRANCH: "patch-6"
+      SOURCESDK_MINIMAL_64XBRANCH: "x86-64-patch-1"
+      GARRYSMOD_COMMON: "RaphaelIT7/garrysmod_common"
+
+  build_module_cl:
+    name: "Build Module (Client)"
+    uses: RaphaelIT7/gmod-common-module-base/.github/workflows/compile.yml@workflow
+    with:
+      PROJECT_NAME: "luaerror"
+      BUILD_64x: "false"
+      REALM: "cl"
+      BUILD_WINDOWS: "true"
+      ARTIFACT_EXPIRE: "7"
+      SOURCESDK_MINIMAL: "RaphaelIT7/sourcesdk-minimal"
+      SOURCESDK_MINIMAL_BRANCH: "patch-6"
+      SOURCESDK_MINIMAL_64XBRANCH: "x86-64-patch-1"
+      GARRYSMOD_COMMON: "RaphaelIT7/garrysmod_common"
