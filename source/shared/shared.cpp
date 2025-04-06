@@ -428,6 +428,7 @@ void Deinitialize( GarrysMod::Lua::ILuaBase * )
 {
 	ResetRuntime( );
 	ResetCompiletime( );
+	AdvancedLuaErrorReporter_detour.Disable( );
 	AdvancedLuaErrorReporter_detour.Destroy( );
 }
 
